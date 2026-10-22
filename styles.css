@@ -1,0 +1,382 @@
+/* ---------------------------------------------------
+   andandrew.xyz
+
+   Type: Gabarito (curvy display) + Space Mono (semi-mono text).
+   Stand-ins for Alfredino Tuttocurvy + Alfredino Semimono.
+   To swap fonts, change the two --font-* lines below and the
+   <link> tag in index.html. Nothing else depends on them.
+
+   Colour: pure white so your illustrations float, black ink,
+   one yellow taken from your artwork, used like a highlighter.
+--------------------------------------------------- */
+
+:root {
+  --paper: #FFFFFF;
+  --ink: #111111;
+  --ink-soft: #555555;
+  --line: #ECECE6;
+  --yellow: #FFD60A;
+
+  --font-display: 'Gabarito', 'Nunito', 'Trebuchet MS', system-ui, sans-serif;
+  --font-mono: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --max-w: 1120px;
+  --gutter: clamp(20px, 5vw, 64px);
+  --header-h: 62px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, p { margin: 0; }
+
+a { color: inherit; }
+img, video { max-width: 100%; height: auto; display: block; }
+
+.wrap {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* the highlighter */
+.mark {
+  background-image: linear-gradient(transparent 60%, var(--yellow) 60%, var(--yellow) 90%, transparent 90%);
+  padding: 0 0.08em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* ---------- header ---------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  height: var(--header-h);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+}
+
+.site-header .wrap {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wordmark img { height: 30px; width: auto; }
+
+.pill {
+  display: inline-block;
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1;
+  padding: 12px 20px;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  transition: background 0.2s ease;
+}
+
+.pill:hover { background: var(--yellow); }
+
+/* ---------- hero: the landing ---------- */
+
+.hero {
+  position: relative;
+  min-height: calc(100svh - var(--header-h));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px var(--gutter);
+  overflow: hidden;
+  text-align: center;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 2;
+  max-width: 780px;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(38px, 5.6vw, 76px);
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+  max-width: 12em;
+  margin: 20px auto 0;
+}
+
+.hero .lede {
+  margin: 26px auto 0;
+  font-size: clamp(14px, 1.4vw, 17px);
+  color: var(--ink-soft);
+  max-width: 34ch;
+}
+
+.hero .cue {
+  display: inline-block;
+  margin-top: 34px;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink-soft);
+}
+
+.hero .cue:hover { color: var(--ink); }
+
+/* the scattered illustrations */
+.float {
+  position: absolute;
+  z-index: 1;
+  width: var(--w);
+  height: auto;
+  transform: rotate(var(--r));
+  animation: settle 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: var(--d);
+}
+
+video.float { aspect-ratio: 3 / 2; object-fit: contain; }
+
+@keyframes settle {
+  from { opacity: 0; transform: translateY(20px) rotate(var(--r)) scale(0.94); }
+  to   { opacity: 1; transform: rotate(var(--r)); }
+}
+
+.f-ball  { --w: clamp(170px, 20vw, 280px); --r: -5deg; --d: 0.1s;  left: 3%;  top: 15%; }
+.f-hands { --w: clamp(215px, 26vw, 370px); --r: 3deg;  --d: 0.25s; right: 2%; top: 6%; }
+.f-car   { --w: clamp(185px, 21vw, 300px); --r: 4deg;  --d: 0.4s;  left: 11%; bottom: 6%; }
+.f-calm  { --w: clamp(145px, 15vw, 220px); --r: -4deg; --d: 0.55s; right: 8%; bottom: 9%; }
+
+@media (max-width: 720px) {
+  .hero { padding: 175px 20px 185px; }
+  .f-ball  { --w: 38vw; left: 2%;  top: 16px; }
+  .f-hands { --w: 46vw; right: 0;  top: 30px; }
+  .f-car   { --w: 42vw; left: 3%;  bottom: 22px; }
+  .f-calm  { --w: 32vw; right: 6%; bottom: 14px; }
+}
+
+/* ---------- sections ---------- */
+
+section + section { border-top: 1px solid var(--line); }
+
+section {
+  padding: clamp(56px, 9vw, 104px) 0;
+}
+
+.section-head { margin-bottom: clamp(30px, 5vw, 52px); }
+
+/* ---------- work ---------- */
+
+.work-list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(48px, 8vw, 84px);
+}
+
+.work-item {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(22px, 4vw, 56px);
+  align-items: center;
+}
+
+.work-media img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.work-tag {
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.work-body h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(24px, 2.9vw, 34px);
+  line-height: 1.15;
+  letter-spacing: -0.005em;
+  margin: 12px 0 16px;
+}
+
+.work-body p { color: var(--ink-soft); }
+
+@media (min-width: 781px) {
+  .work-item:nth-child(even) .work-media { order: 2; }
+}
+
+/* ---------- about ---------- */
+
+.about-statement {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(24px, 3.4vw, 38px);
+  line-height: 1.28;
+  max-width: 30ch;
+  margin-top: 20px;
+}
+
+/* ---------- things I do ---------- */
+
+.cap-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(28px, 4vw, 48px);
+}
+
+.cap-card img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: contain;
+  margin-bottom: 18px;
+}
+
+.cap-card h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.cap-card p { color: var(--ink-soft); font-size: 13px; }
+
+/* ---------- workshop banner ---------- */
+
+.collab {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.collab img {
+  width: 100%;
+  height: clamp(260px, 42vw, 440px);
+  object-fit: cover;
+  object-position: 62% 38%;
+}
+
+/* ---------- contact + sign-off ---------- */
+
+.contact { margin-top: clamp(48px, 7vw, 88px); }
+
+.contact h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(44px, 8vw, 96px);
+  line-height: 1;
+  letter-spacing: -0.015em;
+  margin-bottom: 28px;
+}
+
+.contact h2 a {
+  text-decoration: none;
+  background-image: linear-gradient(transparent 62%, var(--yellow) 62%, var(--yellow) 90%, transparent 90%);
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.35s ease;
+}
+
+.contact h2 a:hover,
+.contact h2 a:focus-visible { background-size: 100% 100%; }
+
+.contact-links { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* The closing line. "and Andrew" is the end of the sentence:
+   "...to create the next best, with you and Andrew". */
+.signoff {
+  margin-top: clamp(64px, 10vw, 120px);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(26px, 4.2vw, 48px);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  max-width: 22em;
+  text-wrap: pretty;
+}
+
+/* keeps the wordmark from ever landing alone on its own line */
+.signoff .nb { white-space: nowrap; }
+
+.signature {
+  display: inline-block;
+  margin-left: 0.3em;
+}
+
+.signature img {
+  display: inline-block;
+  height: 1.15em;
+  width: auto;
+  vertical-align: -0.18em;   /* sits the typeset "and" on the text baseline */
+}
+
+/* the wordmark writes itself on, left to right */
+.js .signature img {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1.6s cubic-bezier(0.55, 0.1, 0.25, 1) 0.3s;
+}
+
+.js .signature.in img { clip-path: inset(-4px -4px -4px -4px); }
+
+/* ---------- footer ---------- */
+
+footer { border-top: 1px solid var(--line); padding: 26px 0 40px; }
+footer .wrap { font-size: 12px; letter-spacing: 0.06em; color: var(--ink-soft); }
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 780px) {
+  .work-item { grid-template-columns: 1fr; }
+  .cap-grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- reveal on scroll (only hides content when JS is running) ---------- */
+
+.js .reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.js .reveal.in { opacity: 1; transform: none; }
+
+/* ---------- accessibility ---------- */
+
+a:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .float { animation: none; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+  .js .signature img { clip-path: none; transition: none; }
+}

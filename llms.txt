@@ -1,0 +1,21 @@
+# Andrew Seetoh
+
+> Singapore-based AI experience and service designer, and product manager. Designs how people and AI agents work together, then prototypes and drives adoption. Open to AI experience design, AI product management, and AI deployment / forward deployed strategist roles in Singapore and APAC.
+
+Contact: seetohandrew@gmail.com · https://www.linkedin.com/in/andrewseetoh/
+
+## Key pages
+
+- [Home](https://andandrewand.github.io/): selected work and how he works
+- [Resume](https://andandrewand.github.io/resume.html): full experience, selected work, skills, and education
+- [Kitchen Crew, chat](https://kitchen-crew-chat.lovable.app/): personal exploration, a multi-agent chat prototype with three Singlish-speaking agents
+- [Kitchen Crew, voice](https://kitchen-crew-call.lovable.app/): the same agents on a voice call
+
+## Summary
+
+- Current: Product Manager, Digital Experience, Singapore Global Network (EDB), since Feb 2026
+- Previously: Senior Lead Service Designer at Singapore Global Network; Senior Design Consultant at IBM iX (2021 to 2025); Prototype Builder at GovTech; Experience Designer at The Secret Little Agency
+- Education: MA Service Design, Royal College of Art; BFA Design, School of Visual Arts
+- How he works: finds where value gets stuck between people, process and technology, then designs the system that frees it up. The tool changes (a programme, a prototype, a workflow or an AI agent) but the job doesn't. Technology is the facilitator.
+- Notable work: built Camp Companion from day 0 at IBM iX, an enterprise-grade mobile app and admin platform taken from pilot to Release 4
+- Languages: English, conversational Mandarin

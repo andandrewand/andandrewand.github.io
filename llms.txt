@@ -6,8 +6,9 @@ Contact: seetohandrew@gmail.com · https://www.linkedin.com/in/andrewseetoh/
 
 ## Key pages
 
-- [Home](https://andandrewand.github.io/): selected work and how he works
-- [Resume](https://andandrewand.github.io/resume.html): full experience, selected work, skills, and education
+- [Home](https://andandrew.com/): selected work and how he works
+- [Agent summary](https://andandrew.com/agent.md): the whole site as one short markdown page
+- [Resume](https://andandrew.com/resume.html): full experience, selected work, skills, and education
 - [Kitchen Crew, chat](https://kitchen-crew-chat.lovable.app/): personal exploration, a multi-agent chat prototype with three Singlish-speaking agents
 - [Kitchen Crew, voice](https://kitchen-crew-call.lovable.app/): the same agents on a voice call
 

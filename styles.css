@@ -442,6 +442,93 @@ section {
   .r-item { break-inside: avoid; }
 }
 
+/* ---------- Human | Agent toggle ---------- */
+
+.view-toggle {
+  display: none;
+  position: fixed;
+  left: 50%;
+  bottom: max(18px, env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  z-index: 30;
+  gap: 2px;
+  padding: 4px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(10px);
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+}
+
+.js .view-toggle { display: flex; }
+
+.view-toggle button {
+  font: 12px/1 var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 11px 18px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.view-toggle button:hover { color: var(--ink); }
+.view-toggle button[aria-pressed="true"] { background: var(--yellow); color: var(--ink); }
+.view-toggle button:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+
+/* room so the floating toggle never covers the footer */
+.js footer { padding-bottom: 96px; }
+
+/* ---------- agent view ---------- */
+
+#agent-view { display: none; border-top: 0; }
+html[data-view="agent"] main > section:not(#agent-view) { display: none; }
+html[data-view="agent"] #agent-view { display: block; }
+
+.agent-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 18px 0 22px;
+}
+
+.agent-note { color: var(--ink-soft); max-width: 52ch; }
+.agent-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+button.pill { background: none; color: inherit; cursor: pointer; }
+button.pill:hover { background: var(--yellow); }
+
+.linklike {
+  font: inherit;
+  color: var(--ink);
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.linklike:hover { background: var(--yellow); }
+
+.agent-md {
+  margin: 0;
+  padding: clamp(18px, 3vw, 34px);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #FAFAF7;
+  font: 13px/1.75 var(--font-mono);
+  color: var(--ink);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+@media print { .view-toggle { display: none !important; } }
+
 /* ---------- footer ---------- */
 
 footer { border-top: 1px solid var(--line); padding: 26px 0 40px; }

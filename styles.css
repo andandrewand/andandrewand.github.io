@@ -249,6 +249,15 @@ section {
   font-size: clamp(14px, 1.4vw, 16px);
 }
 
+.about-links {
+  margin-top: 18px;
+  max-width: 54ch;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.about-links a { color: var(--ink); text-underline-offset: 3px; }
+.about-links a:hover { background: var(--yellow); }
+
 /* ---------- things I do ---------- */
 
 .cap-grid {
